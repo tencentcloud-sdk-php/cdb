@@ -1,0 +1,23 @@
+{
+    "name": "tencentcloud/cdb",
+    "description": "TencentCloudApi php sdk cdb",
+    "type": "library",
+    "homepage": "https://github.com/tencentcloud-sdk-php/cdb",
+    "license": "Apache-2.0",
+    "authors": [
+        {
+            "name": "tencentcloudapi",
+            "email": "tencentcloudapi@tencent.com",
+            "homepage": "https://github.com/tencentcloud-sdk-php/cdb",
+            "role": "Developer"
+        }
+    ],
+    "require": {
+        "tencentcloud/common": "VERSION"
+    },
+    "autoload": {
+        "psr-4": {
+            "TencentCloud\\": "./src/TencentCloud"
+        }
+    }
+}
