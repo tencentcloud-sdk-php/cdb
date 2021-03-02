@@ -82,6 +82,8 @@ use TencentCloud\Common\AbstractModel;
  * @method void setInstanceNodes(integer $InstanceNodes) 设置实例节点数。对于 RO 和 基础版实例， 该值默认为1。 如果需要购买三节点实例， 请将该值设置为3 或指定 BackupZone 参数。当购买主实例，且未指定该参数和 BackupZone 参数时，该值默认是 2， 即购买两节点实例。
  * @method integer getCpu() 获取实例cpu核数， 如果不传将根据memory指定的内存值自动填充对应的cpu值。
  * @method void setCpu(integer $Cpu) 设置实例cpu核数， 如果不传将根据memory指定的内存值自动填充对应的cpu值。
+ * @method integer getAutoSyncFlag() 获取是否自动发起灾备同步功能。该参数仅对购买灾备实例生效。 可选值为：0 - 不自动发起灾备同步；1 - 自动发起灾备同步。
+ * @method void setAutoSyncFlag(integer $AutoSyncFlag) 设置是否自动发起灾备同步功能。该参数仅对购买灾备实例生效。 可选值为：0 - 不自动发起灾备同步；1 - 自动发起灾备同步。
  */
 class CreateDBInstanceRequest extends AbstractModel
 {
@@ -241,6 +243,11 @@ class CreateDBInstanceRequest extends AbstractModel
     public $Cpu;
 
     /**
+     * @var integer 是否自动发起灾备同步功能。该参数仅对购买灾备实例生效。 可选值为：0 - 不自动发起灾备同步；1 - 自动发起灾备同步。
+     */
+    public $AutoSyncFlag;
+
+    /**
      * @param integer $Memory 实例内存大小，单位：MB，请使用 [获取云数据库可售卖规格](https://cloud.tencent.com/document/api/236/17229) 接口获取可创建的内存规格。
      * @param integer $Volume 实例硬盘大小，单位：GB，请使用 [获取云数据库可售卖规格](https://cloud.tencent.com/document/api/236/17229) 接口获取可创建的硬盘范围。
      * @param integer $Period 实例时长，单位：月，可选值包括 [1,2,3,4,5,6,7,8,9,10,11,12,24,36]。
@@ -272,6 +279,7 @@ class CreateDBInstanceRequest extends AbstractModel
      * @param array $AlarmPolicyList 告警策略id数组。
      * @param integer $InstanceNodes 实例节点数。对于 RO 和 基础版实例， 该值默认为1。 如果需要购买三节点实例， 请将该值设置为3 或指定 BackupZone 参数。当购买主实例，且未指定该参数和 BackupZone 参数时，该值默认是 2， 即购买两节点实例。
      * @param integer $Cpu 实例cpu核数， 如果不传将根据memory指定的内存值自动填充对应的cpu值。
+     * @param integer $AutoSyncFlag 是否自动发起灾备同步功能。该参数仅对购买灾备实例生效。 可选值为：0 - 不自动发起灾备同步；1 - 自动发起灾备同步。
      */
     function __construct()
     {
@@ -419,6 +427,10 @@ class CreateDBInstanceRequest extends AbstractModel
 
         if (array_key_exists("Cpu",$param) and $param["Cpu"] !== null) {
             $this->Cpu = $param["Cpu"];
+        }
+
+        if (array_key_exists("AutoSyncFlag",$param) and $param["AutoSyncFlag"] !== null) {
+            $this->AutoSyncFlag = $param["AutoSyncFlag"];
         }
     }
 }
