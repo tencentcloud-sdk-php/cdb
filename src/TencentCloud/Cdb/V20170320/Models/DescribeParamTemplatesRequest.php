@@ -20,14 +20,18 @@ use TencentCloud\Common\AbstractModel;
 /**
  * DescribeParamTemplates请求参数结构体
  *
-
+ * @method array getEngineVersions() 获取引擎版本，缺省则查询所有
+ * @method void setEngineVersions(array $EngineVersions) 设置引擎版本，缺省则查询所有
  */
 class DescribeParamTemplatesRequest extends AbstractModel
 {
-
+    /**
+     * @var array 引擎版本，缺省则查询所有
+     */
+    public $EngineVersions;
 
     /**
-
+     * @param array $EngineVersions 引擎版本，缺省则查询所有
      */
     function __construct()
     {
@@ -42,6 +46,8 @@ class DescribeParamTemplatesRequest extends AbstractModel
         if ($param === null) {
             return;
         }
-
+        if (array_key_exists("EngineVersions",$param) and $param["EngineVersions"] !== null) {
+            $this->EngineVersions = $param["EngineVersions"];
+        }
     }
 }
