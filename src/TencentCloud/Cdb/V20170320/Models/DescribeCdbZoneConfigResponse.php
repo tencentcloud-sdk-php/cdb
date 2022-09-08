@@ -18,33 +18,19 @@ namespace TencentCloud\Cdb\V20170320\Models;
 use TencentCloud\Common\AbstractModel;
 
 /**
- * DescribeDBPrice返回参数结构体
+ * DescribeCdbZoneConfig返回参数结构体
  *
- * @method integer getPrice() 获取实例价格，单位：分。
- * @method void setPrice(integer $Price) 设置实例价格，单位：分。
- * @method integer getOriginalPrice() 获取实例原价，单位：分。
- * @method void setOriginalPrice(integer $OriginalPrice) 设置实例原价，单位：分。
- * @method string getCurrency() 获取货币单位。CNY-人民币，USD-美元。
- * @method void setCurrency(string $Currency) 设置货币单位。CNY-人民币，USD-美元。
+ * @method CdbZoneDataResult getDataResult() 获取售卖规格和地域信息集合
+ * @method void setDataResult(CdbZoneDataResult $DataResult) 设置售卖规格和地域信息集合
  * @method string getRequestId() 获取唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
  * @method void setRequestId(string $RequestId) 设置唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
  */
-class DescribeDBPriceResponse extends AbstractModel
+class DescribeCdbZoneConfigResponse extends AbstractModel
 {
     /**
-     * @var integer 实例价格，单位：分。
+     * @var CdbZoneDataResult 售卖规格和地域信息集合
      */
-    public $Price;
-
-    /**
-     * @var integer 实例原价，单位：分。
-     */
-    public $OriginalPrice;
-
-    /**
-     * @var string 货币单位。CNY-人民币，USD-美元。
-     */
-    public $Currency;
+    public $DataResult;
 
     /**
      * @var string 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
@@ -52,9 +38,7 @@ class DescribeDBPriceResponse extends AbstractModel
     public $RequestId;
 
     /**
-     * @param integer $Price 实例价格，单位：分。
-     * @param integer $OriginalPrice 实例原价，单位：分。
-     * @param string $Currency 货币单位。CNY-人民币，USD-美元。
+     * @param CdbZoneDataResult $DataResult 售卖规格和地域信息集合
      * @param string $RequestId 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
      */
     function __construct()
@@ -70,16 +54,9 @@ class DescribeDBPriceResponse extends AbstractModel
         if ($param === null) {
             return;
         }
-        if (array_key_exists("Price",$param) and $param["Price"] !== null) {
-            $this->Price = $param["Price"];
-        }
-
-        if (array_key_exists("OriginalPrice",$param) and $param["OriginalPrice"] !== null) {
-            $this->OriginalPrice = $param["OriginalPrice"];
-        }
-
-        if (array_key_exists("Currency",$param) and $param["Currency"] !== null) {
-            $this->Currency = $param["Currency"];
+        if (array_key_exists("DataResult",$param) and $param["DataResult"] !== null) {
+            $this->DataResult = new CdbZoneDataResult();
+            $this->DataResult->deserialize($param["DataResult"]);
         }
 
         if (array_key_exists("RequestId",$param) and $param["RequestId"] !== null) {
