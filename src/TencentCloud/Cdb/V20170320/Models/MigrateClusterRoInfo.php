@@ -18,44 +18,46 @@ namespace TencentCloud\Cdb\V20170320\Models;
 use TencentCloud\Common\AbstractModel;
 
 /**
- * CheckMigrateCluster请求参数结构体
+ * 一键迁移集群版只读实例信息
  *
- * @method string getInstanceId() 获取实例Id。
- * @method void setInstanceId(string $InstanceId) 设置实例Id。
- * @method integer getCpu() 获取实例CPU核数
- * @method void setCpu(integer $Cpu) 设置实例CPU核数
- * @method integer getMemory() 获取实例内存大小，单位：MB
- * @method void setMemory(integer $Memory) 设置实例内存大小，单位：MB
- * @method integer getVolume() 获取实例硬盘大小，单位：GB
- * @method void setVolume(integer $Volume) 设置实例硬盘大小，单位：GB
+ * @method string getRoInstanceId() 获取只读实例名称
+ * @method void setRoInstanceId(string $RoInstanceId) 设置只读实例名称
+ * @method integer getCpu() 获取只读实例CPU核数
+ * @method void setCpu(integer $Cpu) 设置只读实例CPU核数
+ * @method integer getMemory() 获取只读实例内存大小，单位：MB
+ * @method void setMemory(integer $Memory) 设置只读实例内存大小，单位：MB
+ * @method integer getVolume() 获取只读实例硬盘大小，单位：GB
+ * @method void setVolume(integer $Volume) 设置只读实例硬盘大小，单位：GB
  * @method string getDiskType() 获取磁盘类型。 CLOUD_SSD: SSD云硬盘; CLOUD_HSSD: 增强型SSD云硬盘
  * @method void setDiskType(string $DiskType) 设置磁盘类型。 CLOUD_SSD: SSD云硬盘; CLOUD_HSSD: 增强型SSD云硬盘
- * @method ClusterTopology getClusterTopology() 获取集群版节点拓扑配置。
- * @method void setClusterTopology(ClusterTopology $ClusterTopology) 设置集群版节点拓扑配置。
+ * @method string getZone() 获取可用区
+ * @method void setZone(string $Zone) 设置可用区
  * @method string getDeviceType() 获取迁移实例类型。支持值包括： "CLOUD_NATIVE_CLUSTER" - 标准型集群版实例， "CLOUD_NATIVE_CLUSTER_EXCLUSIVE" - 加强型集群版实例。
  * @method void setDeviceType(string $DeviceType) 设置迁移实例类型。支持值包括： "CLOUD_NATIVE_CLUSTER" - 标准型集群版实例， "CLOUD_NATIVE_CLUSTER_EXCLUSIVE" - 加强型集群版实例。
- * @method array getRoInfo() 获取只读实例信息
- * @method void setRoInfo(array $RoInfo) 设置只读实例信息
+ * @method string getRoGroupId() 获取只读实例所在ro组，例：cdbrg-xxx
+ * @method void setRoGroupId(string $RoGroupId) 设置只读实例所在ro组，例：cdbrg-xxx
+ * @method array getSrcAlarmPolicyList() 获取实例当前告警策略id数组
+ * @method void setSrcAlarmPolicyList(array $SrcAlarmPolicyList) 设置实例当前告警策略id数组
  */
-class CheckMigrateClusterRequest extends AbstractModel
+class MigrateClusterRoInfo extends AbstractModel
 {
     /**
-     * @var string 实例Id。
+     * @var string 只读实例名称
      */
-    public $InstanceId;
+    public $RoInstanceId;
 
     /**
-     * @var integer 实例CPU核数
+     * @var integer 只读实例CPU核数
      */
     public $Cpu;
 
     /**
-     * @var integer 实例内存大小，单位：MB
+     * @var integer 只读实例内存大小，单位：MB
      */
     public $Memory;
 
     /**
-     * @var integer 实例硬盘大小，单位：GB
+     * @var integer 只读实例硬盘大小，单位：GB
      */
     public $Volume;
 
@@ -65,9 +67,9 @@ class CheckMigrateClusterRequest extends AbstractModel
     public $DiskType;
 
     /**
-     * @var ClusterTopology 集群版节点拓扑配置。
+     * @var string 可用区
      */
-    public $ClusterTopology;
+    public $Zone;
 
     /**
      * @var string 迁移实例类型。支持值包括： "CLOUD_NATIVE_CLUSTER" - 标准型集群版实例， "CLOUD_NATIVE_CLUSTER_EXCLUSIVE" - 加强型集群版实例。
@@ -75,19 +77,25 @@ class CheckMigrateClusterRequest extends AbstractModel
     public $DeviceType;
 
     /**
-     * @var array 只读实例信息
+     * @var string 只读实例所在ro组，例：cdbrg-xxx
      */
-    public $RoInfo;
+    public $RoGroupId;
 
     /**
-     * @param string $InstanceId 实例Id。
-     * @param integer $Cpu 实例CPU核数
-     * @param integer $Memory 实例内存大小，单位：MB
-     * @param integer $Volume 实例硬盘大小，单位：GB
+     * @var array 实例当前告警策略id数组
+     */
+    public $SrcAlarmPolicyList;
+
+    /**
+     * @param string $RoInstanceId 只读实例名称
+     * @param integer $Cpu 只读实例CPU核数
+     * @param integer $Memory 只读实例内存大小，单位：MB
+     * @param integer $Volume 只读实例硬盘大小，单位：GB
      * @param string $DiskType 磁盘类型。 CLOUD_SSD: SSD云硬盘; CLOUD_HSSD: 增强型SSD云硬盘
-     * @param ClusterTopology $ClusterTopology 集群版节点拓扑配置。
+     * @param string $Zone 可用区
      * @param string $DeviceType 迁移实例类型。支持值包括： "CLOUD_NATIVE_CLUSTER" - 标准型集群版实例， "CLOUD_NATIVE_CLUSTER_EXCLUSIVE" - 加强型集群版实例。
-     * @param array $RoInfo 只读实例信息
+     * @param string $RoGroupId 只读实例所在ro组，例：cdbrg-xxx
+     * @param array $SrcAlarmPolicyList 实例当前告警策略id数组
      */
     function __construct()
     {
@@ -102,8 +110,8 @@ class CheckMigrateClusterRequest extends AbstractModel
         if ($param === null) {
             return;
         }
-        if (array_key_exists("InstanceId",$param) and $param["InstanceId"] !== null) {
-            $this->InstanceId = $param["InstanceId"];
+        if (array_key_exists("RoInstanceId",$param) and $param["RoInstanceId"] !== null) {
+            $this->RoInstanceId = $param["RoInstanceId"];
         }
 
         if (array_key_exists("Cpu",$param) and $param["Cpu"] !== null) {
@@ -122,22 +130,20 @@ class CheckMigrateClusterRequest extends AbstractModel
             $this->DiskType = $param["DiskType"];
         }
 
-        if (array_key_exists("ClusterTopology",$param) and $param["ClusterTopology"] !== null) {
-            $this->ClusterTopology = new ClusterTopology();
-            $this->ClusterTopology->deserialize($param["ClusterTopology"]);
+        if (array_key_exists("Zone",$param) and $param["Zone"] !== null) {
+            $this->Zone = $param["Zone"];
         }
 
         if (array_key_exists("DeviceType",$param) and $param["DeviceType"] !== null) {
             $this->DeviceType = $param["DeviceType"];
         }
 
-        if (array_key_exists("RoInfo",$param) and $param["RoInfo"] !== null) {
-            $this->RoInfo = [];
-            foreach ($param["RoInfo"] as $key => $value){
-                $obj = new MigrateClusterRoInfo();
-                $obj->deserialize($value);
-                array_push($this->RoInfo, $obj);
-            }
+        if (array_key_exists("RoGroupId",$param) and $param["RoGroupId"] !== null) {
+            $this->RoGroupId = $param["RoGroupId"];
+        }
+
+        if (array_key_exists("SrcAlarmPolicyList",$param) and $param["SrcAlarmPolicyList"] !== null) {
+            $this->SrcAlarmPolicyList = $param["SrcAlarmPolicyList"];
         }
     }
 }
