@@ -20,26 +20,26 @@ use TencentCloud\Common\AbstractModel;
 /**
  * 时间段
  *
- * @method string getStartTime() 获取开始时间
- * @method void setStartTime(string $StartTime) 设置开始时间
- * @method string getEndTime() 获取结束时间
- * @method void setEndTime(string $EndTime) 设置结束时间
+ * @method string getStartTime() 获取开始时间。
+ * @method void setStartTime(string $StartTime) 设置开始时间。
+ * @method string getEndTime() 获取结束时间。
+ * @method void setEndTime(string $EndTime) 设置结束时间。
  */
 class TimeInterval extends AbstractModel
 {
     /**
-     * @var string 开始时间
+     * @var string 开始时间。
      */
     public $StartTime;
 
     /**
-     * @var string 结束时间
+     * @var string 结束时间。
      */
     public $EndTime;
 
     /**
-     * @param string $StartTime 开始时间
-     * @param string $EndTime 结束时间
+     * @param string $StartTime 开始时间。
+     * @param string $EndTime 结束时间。
      */
     function __construct()
     {
