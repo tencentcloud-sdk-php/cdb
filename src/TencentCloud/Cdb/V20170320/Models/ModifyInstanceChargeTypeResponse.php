@@ -18,33 +18,19 @@ namespace TencentCloud\Cdb\V20170320\Models;
 use TencentCloud\Common\AbstractModel;
 
 /**
- * UpgradeDBInstance返回参数结构体
+ * ModifyInstanceChargeType返回参数结构体
  *
- * @method array getDealIds() 获取<p>订单 ID。</p>
- * @method void setDealIds(array $DealIds) 设置<p>订单 ID。</p>
- * @method string getAsyncRequestId() 获取<p>异步任务的请求 ID，可使用此 ID <a href="https://cloud.tencent.com/document/product/236/20410">查询异步任务的执行结果</a>。</p>
- * @method void setAsyncRequestId(string $AsyncRequestId) 设置<p>异步任务的请求 ID，可使用此 ID <a href="https://cloud.tencent.com/document/product/236/20410">查询异步任务的执行结果</a>。</p>
- * @method integer getJobId() 获取<p>任务列表的任务ID</p>
- * @method void setJobId(integer $JobId) 设置<p>任务列表的任务ID</p>
+ * @method string getDealName() 获取<p>订单ID</p>
+ * @method void setDealName(string $DealName) 设置<p>订单ID</p>
  * @method string getRequestId() 获取唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
  * @method void setRequestId(string $RequestId) 设置唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
  */
-class UpgradeDBInstanceResponse extends AbstractModel
+class ModifyInstanceChargeTypeResponse extends AbstractModel
 {
     /**
-     * @var array <p>订单 ID。</p>
+     * @var string <p>订单ID</p>
      */
-    public $DealIds;
-
-    /**
-     * @var string <p>异步任务的请求 ID，可使用此 ID <a href="https://cloud.tencent.com/document/product/236/20410">查询异步任务的执行结果</a>。</p>
-     */
-    public $AsyncRequestId;
-
-    /**
-     * @var integer <p>任务列表的任务ID</p>
-     */
-    public $JobId;
+    public $DealName;
 
     /**
      * @var string 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
@@ -52,9 +38,7 @@ class UpgradeDBInstanceResponse extends AbstractModel
     public $RequestId;
 
     /**
-     * @param array $DealIds <p>订单 ID。</p>
-     * @param string $AsyncRequestId <p>异步任务的请求 ID，可使用此 ID <a href="https://cloud.tencent.com/document/product/236/20410">查询异步任务的执行结果</a>。</p>
-     * @param integer $JobId <p>任务列表的任务ID</p>
+     * @param string $DealName <p>订单ID</p>
      * @param string $RequestId 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
      */
     function __construct()
@@ -70,16 +54,8 @@ class UpgradeDBInstanceResponse extends AbstractModel
         if ($param === null) {
             return;
         }
-        if (array_key_exists("DealIds",$param) and $param["DealIds"] !== null) {
-            $this->DealIds = $param["DealIds"];
-        }
-
-        if (array_key_exists("AsyncRequestId",$param) and $param["AsyncRequestId"] !== null) {
-            $this->AsyncRequestId = $param["AsyncRequestId"];
-        }
-
-        if (array_key_exists("JobId",$param) and $param["JobId"] !== null) {
-            $this->JobId = $param["JobId"];
+        if (array_key_exists("DealName",$param) and $param["DealName"] !== null) {
+            $this->DealName = $param["DealName"];
         }
 
         if (array_key_exists("RequestId",$param) and $param["RequestId"] !== null) {
